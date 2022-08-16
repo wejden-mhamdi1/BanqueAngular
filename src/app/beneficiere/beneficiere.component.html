@@ -1,0 +1,235 @@
+<app-templat></app-templat>
+<!--te5f-->
+
+<div class="main-container">
+    <div class="row clearfix">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="da-card">
+          <div class="da-card-photo">
+           
+          </div>
+        </div>
+      </div>
+      <div class="container">
+    
+        <div class="row">
+          <div class="col" style="height: 50px; width: 50px">
+            <a href="javascript:void(0)" (click)="open(classic, 'xl', $event)"
+              ><button class="btn btn-primary">Beneficiere Information</button>
+            </a>
+          </div>
+        </div>
+        <div class="table-responsive mt-1">
+          <table class="table table-striped">
+           
+            <tbody>
+             
+              
+              
+                 <!-- <a
+                    href="javascript:void(0)"
+                    (click)="deleteCollaboration(collaboration)"
+                  >
+                    <i class="icon-copy dw dw-delete-3" style="color: red"></i>
+                  </a>-->
+               
+             
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <ng-template #classic let-c="close" let-d="dismiss">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title text-primary" id="modal-title-default">
+              ajouter beneficiere :
+            </h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              (click)="d('Cross click')"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+      <form class="form-horizontal"    role="form"
+        [formGroup]="form"    (ngSubmit)="s()">
+<!--nom-->
+        <label class="col-form-label">Nom</label>
+        <input class="form-control" type="text" formControlName="nom" required/>
+        <div class="alert alert-danger" *ngIf=" nom.required" >
+          <b>Name is required</b>
+        </div>
+<!--nom-->
+<label class="col-form-label">Prenom</label>
+        <input class="form-control" type="text" formControlName="prenom" required/>
+        <div class="alert alert-danger" *ngIf=" prenom.required" >
+          <b>Prenom is required</b>
+        </div>
+ <!--nom-->
+ <label class="col-form-label">Adresse</label>
+        <input class="form-control" type="text" formControlName="adresse" required/>
+        <div class="alert alert-danger" *ngIf=" adresse.required" >
+          <b>Adresse is required</b>
+        </div>
+  <!--nom-->
+   <!--nom-->
+ <label class="col-form-label">email</label>
+ <input class="form-control" type="text" formControlName="email" required/>
+ <div class="alert alert-danger" *ngIf=" email.required" >
+   <b>email is required</b>
+ </div>
+<!--nom-->
+  <label class="col-form-label">Tel</label>
+  <input class="form-control" type="text" formControlName="tel" required/>
+  <div class="alert alert-danger" *ngIf="tel.required" >
+    <b>Tel is required</b>
+  </div>
+   <!--nom-->
+   <label class="col-form-label">Cin_benef</label>
+   <input class="form-control" type="number" formControlName="cin_benef" required/>
+   <div class="alert alert-danger" *ngIf="cin_benef.required" >
+     <b>Cin_benef is required</b>
+   </div>
+   <!--butttton-->
+   <div >
+    <button  [disabled]="form.invalid"  type="submit" >Add</button>
+    
+  </div>
+
+
+
+
+
+
+
+
+        </form>
+      </div>
+        <!---->
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-link ml-auto"
+    data-dismiss="modal"
+    (click)="c('Close click')"
+  >
+    Close
+  </button>
+</div>
+</div>
+</ng-template>
+
+        <div class="container">
+         
+          <table class="table table-striped custab">
+          <thead>
+              <tr>
+                  
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Adresse</th>
+                  <th>Tel</th>
+                  <th>Cin_benef</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let prods of ListTrie">
+                  <td>{{prods.nom}}</td>
+                  <td>{{prods.prenom}}</td>
+                  <td>{{prods.tel}}</td>
+                  <td>{{prods.cin_benef}}</td>
+                  <td>{{prods.adresse}}</td>
+                 <td>
+                  <a
+                  href="javascript:void(0)"
+                  (click)="deleteCollaboration(prods)"
+                >
+                  <i
+                    class="icon-copy dw dw-delete-3"
+                    style="color: red"
+                  ></i>
+                </a>
+                 </td>
+                 <td>
+                  <a
+                  href="javascript:void(0)"
+                  (click)="get(prods.id)"
+                >
+                <i
+                class="icon-copy dw dw-delete-3"
+                style="color: green"
+              ></i>
+                  
+                </a>
+               <a href="javascript:void(0)" (click)="edit(prods.id)">
+                  <i
+                    class="icon-copy dw dw-edit-1 ml-1"
+                    style="color: rgb(190, 129, 14)"
+                  ></i>
+                </a>
+                 </td>
+                 
+                
+                </tr>
+                
+          </tbody>
+          </table>
+     
+        
+      </div>
+      <div *ngIf="loading">
+        <app-loading></app-loading>
+      </div>
+      <div *ngIf="!loading && errorMessage">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <p class="h4 text-danger fw-bold">
+{{errorMessage}}
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div *ngIf="!loading && table.length>0 " class="container mt-3">
+  <div class= "row">
+    <div *ngFor="let prods of table" class="col-md-6">
+  <div class= "card list-group-item-danger shadow-lg my-2">
+  <div class= "card-body">
+  <div class="row align-items-center">
+  <div class=" col-sm-7">
+  <img alt="" class=" contact-img" src="">
+  </div>
+  <div class=" col-sm-7" >
+  <ul class="list-group">
+  <li class="list-group-item"> Nom : <span class="fw-bold">{{prods.nom}}</span></li>
+  <li class="list-group-item"> Prenom : <span class="fw-bold">{{prods.prenom}}</span></li>
+  <li class="list-group-item"> Tel : <span class="fw-bold">{{prods.tel}}</span></li>
+  <li class="list-group-item"> Cin_benef : <span class="fw-bold">{{prods.cin_benef}}</span></li>
+  <li class="list-group-item"> Adresse : <span class="fw-bold">{{prods.adresse}}</span></li>
+
+  </ul>
+  </div>
+  <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+  <a class="btn btn-warning my-1" routerLink="/show/{{prods.id}}">
+  <i class=" fa fa-eye"></i>
+  </a>
+  <a class="btn btn-primary my-1" (click)="edit(prods.id)">
+    <i class="fa fa-repeat" aria-hidden="true"></i>
+    </a>
+    <a class="btn btn-primary my-1" routerLink="/sms">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>

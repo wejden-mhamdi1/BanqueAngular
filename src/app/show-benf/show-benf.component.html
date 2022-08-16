@@ -1,0 +1,46 @@
+
+<p>hiiiiiiiii</p>
+<div *ngIf="loading">
+    <app-loading></app-loading>
+  </div>
+  <div *ngIf="!loading && errorMessage">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="h4 text-danger fw-bold">
+{{errorMessage}}
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div  class="container mt-3">
+    <div class= "row">
+      <div *ngFor="let prods of List" class="col-md-6">
+    <div class= "card list-group-item-danger shadow-lg my-2">
+    <div class= "card-body">
+    <div class="row align-items-center">
+    <div class=" col-sm-7">
+    <img alt="" class=" contact-img" src="">
+    </div>
+    <div class=" col-sm-7" >
+    <ul class="list-group">
+        <li class="list-group-item"> Nom : <span class="fw-bold">{{prods.nom}}</span></li>
+        <li class="list-group-item"> Prenom : <span class="fw-bold">{{prods.prenom}}</span></li>
+        <li class="list-group-item"> Adresse : <span class="fw-bold">{{prods.adresse}}</span></li>
+        <li class="list-group-item"> Adresse : <span class="fw-bold">{{prods.email}}</span></li>
+        <li class="list-group-item"> Tel : <span class="fw-bold">{{prods.tel}}</span></li>
+        <li class="list-group-item"> Cin_benef : <span class="fw-bold">{{prods.cin_benef}}</span></li>
+        
+    
+  
+    </ul>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

@@ -1,0 +1,242 @@
+<app-templat></app-templat>
+<div class="main-container">
+    <div class="row clearfix">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="da-card">
+          <div class="da-card-photo">
+           
+          </div>
+        </div>
+      </div>
+      <!--
+         <div class="body">
+        <form class="form-horizontal"    role="form"
+        [formGroup]="collaborationForm">
+        <div class="row clearfix">
+          <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class='fa fa-user red-color'></i></span>
+              </div>
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+        <label for="Nom">Nom</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7"><div class="form-group"> <div class="form-line">
+          <input formControlName="Nom"
+          required  type="text" id="Nom" class="form-control" placeholder="Enter your Nom">
+          <small *ngIf="Nom.required" class="text-danger"
+          ><b>Name is required</b></small
+        ></div></div></div></div>
+          
+        <div class="row clearfix">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class='fa fa-user red-color'></i></span>
+        </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs -5 form-control-label">
+          
+        <label for="Prenom">Prenom</label></div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7"><div class="form-group"><div class="form-line">
+       
+         <input name="Prenom" [(ngModel)]="exp.Prenom" type="text" id="Prenom" class="form-control" placeholder="Enter your  Prenom"></div> </div> </div></div>
+    
+         <div class="row clearfix">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-home red-color"></i></span>
+        </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+          <label for="Adresse">Adresse</label>
+          </div>
+         <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7"><div class="form-group"> <div class="form-line">
+            <input name="Adresse" [(ngModel)]="exp.Adresse" type="text" id="Adresse" class="form-control" placeholder="Enter your Adresse"></div></div></div></div>
+  
+  <div class="row clearfix">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-phone red-color"></i></span>
+  </div>
+  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 form-control-label">
+    <label for="télephone">télephone</label>
+    </div>
+              <div class="form-group input-group">
+          <select class="custom-select" style="max-width: 120px;">
+            <option selected="">+216</option>
+        </select>
+        <div class="col-lg-7 col-md-10 col-sm-8 col- xs-7"><div class="form-group"> <div class="form-line">
+          <input name="Tel" [(ngModel)]="exp.Tel" type="text" id="Tel" class="form-control" placeholder="Enter your Tel"></div></div></div></div>  </div>
+
+               
+         <div class="row clearfix">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-id-card red-color"></i></span>
+        </div>
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+          <label for="Cin_exp">Carte </label>
+          </div>
+         <div class="col-lg-10 col-md-10 col-sm-8 col- xs-7"><div class="form-group"> <div class="form-line">
+            <input name="Cin_exp" [(ngModel)]="exp.Cin_exp" type="text" id="Cin_exp" class="form-control" placeholder="Enter your CIN"></div></div></div></div>
+
+                <button (click)="ajout()" type="button" class="btn btn-primary m-t-15 waves-effect">Add</button>
+              </form>
+    </div>
+  
+  
+
+</div> 
+
+</div>
+-->
+<style>
+   .red-color {
+        color:red;
+    }
+   </style>
+   <div class="container">
+    
+    <div class="row">
+      <div class="col" style="height: 50px; width: 50px">
+        <a href="javascript:void(0)" (click)="open(classic, 'xl', $event)"
+          ><button class="btn btn-primary">Emitteur Information</button>
+        </a>
+      </div>
+      <div class="col" style="height: 50px; width: 50px">
+        <a [routerLink]="['/addBENF']"
+          ><button class="btn btn-primary">Beneficiere Information</button>
+        </a>
+      </div>
+    </div>
+    <div class="table-responsive mt-1">
+      <table class="table table-striped">
+       
+        <tbody>
+         
+          
+          
+             <!-- <a
+                href="javascript:void(0)"
+                (click)="deleteCollaboration(collaboration)"
+              >
+                <i class="icon-copy dw dw-delete-3" style="color: red"></i>
+              </a>-->
+           
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #classic let-c="close" let-d="dismiss">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-primary" id="modal-title-default">
+          ajouter emitteur :
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="d('Cross click')"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--forrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrm-->
+        <!--role="form"-->
+       
+      <form class="form-horizontal"    role="form"
+        [formGroup]="collaborationForm"    (ngSubmit)="s()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class='fa fa-user red-color'></i></span>
+          </div>
+            <label class="col-form-label">Nom</label>
+            <input class="form-control" type="text" formControlName="Nom" required/>
+            <div class="alert alert-danger" *ngIf="Nom.required " >
+              <b>Name is required</b>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class='fa fa-user red-color'></i></span>
+          </div>
+            <label class="col-form-label">Prenom</label>
+            <input class="form-control" type="text" formControlName="Prenom" required/>
+            <div class="alert alert-danger" *ngIf="Prenom.required" >
+
+           <b>Prenom is required</b>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-home red-color"></i></span>
+        </div>
+        
+          <label class="col-form-label">Phone</label>
+          <input class="form-control" type="number" formControlName="Tel" required/>
+            <div class="alert alert-danger" *ngIf="Tel.required && Tel.pattern" >
+         
+              <b>Phone is required</b>
+            
+          </div>
+        </div>
+      </div>
+    
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-id-card red-color"></i></span>
+      </div>
+        <label class="col-form-label">Cin_exp</label>
+        <input class="form-control" type="number" formControlName="Cin_exp" required/>
+        <div class="alert alert-danger" *ngIf="Cin_exp.required" >
+       
+            <b>Cin_exp is required</b>
+         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class='fa fa-user red-color'></i></span>
+      </div>
+        <label class="col-form-label">Adresse</label>
+        <input class="form-control" type="text" formControlName="Adresse" required/>
+        <div class="alert alert-danger" *ngIf="Adresse.required" >
+          <b>Adresse is required</b>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center">
+     <!-- <button  [disabled]="collaborationForm.invalid" (click)="ajout()" type="button" class="btn btn-primary m-t-15 waves-effect">Add</button>-->
+      <button
+        type="submit"
+        class="btn btn-success mt-2 ml-2"
+        [disabled]="collaborationForm.invalid"
+      >
+        save
+      </button>
+    </div>
+  </form>
+</div>
+<!---->
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-link ml-auto"
+    data-dismiss="modal"
+    (click)="c('Close click')"
+  >
+    Close
+  </button>
+</div>
+</div>
+</ng-template>
+ 
+  
